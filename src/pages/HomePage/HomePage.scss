@@ -1,0 +1,51 @@
+body {
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.home-page {
+    height: 100vh;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        gap: 38px;
+        position: relative;
+
+        .cc-wrapper {
+            position: fixed;
+            top: 0;
+            width: 20vw;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #fff;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .contact-list-wrapper {
+            margin-left: auto;
+            width: 60vw;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .container {
+            flex-direction: column;
+
+            .cc-wrapper {
+                position: relative;
+                width: 100%;
+                height: auto;
+                overflow: visible;
+                padding: 10px;
+            }
+
+            .contact-list-wrapper {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+
+}
