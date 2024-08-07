@@ -21,7 +21,7 @@ const Contact = ({ data, handleDeleteContact }) => {
     };
 
     const handleDeleteClick = (e) => {
-        e.stopPropagation(); // Предотвращает всплытие события клика на родительский элемент
+        e.stopPropagation();
         handleDeleteContact(data.id);
     };
 

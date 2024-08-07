@@ -67,8 +67,8 @@ const CreateContact = ({ onContactAdded }) => {
                 setTimeout(() => {
                     setShowToast(false);
                     setFadeOut(false);
-                }, 1000); // Duration of the fade-out transition
-            }, 2000); // Time before starting fade-out
+                }, 1000);
+            }, 2000);
             onContactAdded(newContact);
 
 

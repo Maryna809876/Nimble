@@ -46,32 +46,6 @@ const ContactPage = () => {
         fetchContact()
     }, [])
 
-    ///
-    const wtf = async () => {
-        await fetch(`/api/v1/contact/${contact.id}/tags`, {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn',
-
-            }
-        }).then((response) => {
-            return response.json();
-        })
-            .then((data) => {
-                console.log(data.tags);
-            });
-    }
-
-    useEffect(() => {
-        wtf()
-    }, [])
-
-    ///
-    console.log(contact.id);
-
-    // console.log(contact.id);
-
-
     const handleAddTags = async (e) => {
         e.preventDefault();
 
