@@ -13,27 +13,28 @@ const HomePage = () => {
     const fetchContacts = async () => {
         console.log('starting fetchContacts...');
 
-        try {
-            const response = await fetch(`/api/v1/contacts`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn',
-                    sort: 'created:desc',
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+        const response = await fetch(`/api/v1/contacts`, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn',
+                'Content-Type': 'application/json'
             }
+        });
 
-            const data = await response.json();
-            setContacts(data.resources);
-            console.log('fetchContacts completed');
-
-        } catch (error) {
-            console.log(error);
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error response body:', errorText);
+            throw new Error('Network response was not ok');
         }
+
+        const data = await response.json();
+        setContacts(data.resources);
+        console.log('fetchContacts completed');
+        console.log('Data:', data);
+
+
     };
+
 
     useEffect(() => {
         fetchContacts();

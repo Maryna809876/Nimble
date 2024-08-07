@@ -4,6 +4,7 @@ import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
     plugins: [react(), svgr()],
+    base: '/Nimble/',
     server: {
         proxy: {
             '/api': {
@@ -11,7 +12,8 @@ export default defineConfig({
                 changeOrigin: true,
                 secure: false,
                 headers: {
-                    'Origin': 'http://localhost:5175'
+                    'Origin': 'http://localhost:5175',
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             },
         },

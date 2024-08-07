@@ -33,6 +33,7 @@ const ContactPage = () => {
             if (contactData) {
                 setContact(contactData);
                 setTags(contactData.tags || []);
+
             }
             setLoading(false);
 
@@ -43,8 +44,15 @@ const ContactPage = () => {
     };
 
     useEffect(() => {
+        console.log('Contact state updated:', contact);
+    }, [contact]);
+
+    useEffect(() => {
         fetchContact()
     }, [])
+
+    // 66b28c8f13d3b16cd2be3d7d
+
 
     const handleAddTags = async (e) => {
         e.preventDefault();
@@ -54,11 +62,13 @@ const ContactPage = () => {
         if (tagsArray.length === 0) return;
 
         try {
-            const response = await fetch(`/api/v1/contact/${contact.id}/tags`, {
+            const response = await fetch(`https://cors-anywhere.herokuapp.com/https://live.devnimble.com/api/v1/contact/${id}/tags`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': 'Bearer VlP9cwH6cc7Kg2LsNPXpAvF6QNmgZn',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Origin': 'http://localhost:5175',
                 },
                 body: JSON.stringify({ tags: tagsArray }),
             });
