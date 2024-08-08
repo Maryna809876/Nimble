@@ -6,7 +6,7 @@ export default defineConfig(({ mode }) => {
     return {
         plugins: [react(), svgr()],
         // base: mode === 'production' ? '/Nimble/' : '/',
-        base: "/",
+        base: "./",
         server: {
             proxy: {
                 '/api': {
